@@ -1,0 +1,176 @@
+.admin_main {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+}
+
+.admin_sub_main {
+    position: relative;
+    width: 500px;
+}
+
+.header_admin {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.adminImg {
+    border-radius: 50%;
+}
+
+.admin_firstdiv {
+    display: flex;
+    gap: 10px;
+}
+
+.admin_firstdiv p {
+    font-weight: 600;
+    line-height: 0;
+}
+
+.main_products_list {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.main_products_list_individual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.main_products_list_individual h3 {
+    line-height: 10px;
+}
+
+.main_products_list_individual p {
+    line-height: 0;
+}
+
+.bottom_navigator {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgb(222, 222, 222);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+}
+
+.active_admin {
+    color: #61B846;
+}
+.add_category_form_div{
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.add_category_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add_category_form input, .add_category_form select, .add_category_form textarea {
+    padding: 15px 20px;
+    border-radius: 50px;
+    border: 1px solid rgb(222, 222, 222);
+}
+
+.add_category_form textarea {
+    border-radius: 10px;
+    resize: none;
+}
+.pricing_div{
+    display: flex;
+    justify-content: space-between;
+}
+.pricing_div label{
+    color: #024F9D;
+    font-weight: 700;
+    font-size: 20px;
+}
+.add_category_form button{
+    width: 80%;
+    margin: 10px auto;
+    border: none;
+    border-radius: 50px;
+    background-color: #61B846;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+.admin_account_img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 50px auto;
+}
+.admin_account_name{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #61B846;
+}
+.admin_logout_div{
+   display: flex;
+   justify-content: center;
+}
+.admin_logout_div button{
+    padding: 20px 60px;
+    border-radius: 50px;
+    border: none;
+    background-color: #61B846;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.order_heading{
+    color: #61B846;
+}
+.orders_itemslist{
+    height: 65vh;
+    overflow-y: auto;
+}
+.individual_order{
+    border-bottom: 5px solid gray;
+}
+.order_number_details{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: -25px;
+}
+
+.order_items p{
+    line-height: 1px;
+    font-size: 13px;
+}
+.order_items{
+    margin-top: -20px;
+}
+.order_total{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: -10px;
+}
+
+@media (max-width:650px) {
+    .admin_sub_main {
+        width: 95%;
+    }
+}

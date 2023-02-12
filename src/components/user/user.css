@@ -1,0 +1,35 @@
+.admin_main {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+}
+
+.admin_sub_main {
+    position: relative;
+    width: 500px;
+}
+
+.bottom_navigator {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgb(222, 222, 222);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+}
+
+.active_admin {
+    color: #61B846;
+}
+
+@media (max-width:650px) {
+    .admin_sub_main {
+        width: 95%;
+    }
+}

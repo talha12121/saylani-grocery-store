@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Loader from "./loader";
+import { getDatabase, ref, child, get } from "firebase/database";
+
 
 
 function Login() {
@@ -21,17 +23,30 @@ function Login() {
                 const user = userCredential.user;
                 if (user.email === 'admin@gmail.com') {
                     alert('admin login in')
+                    localStorage.setItem('loggedin', 'admin')
                     navigate('/admin')
                 }
                 else {
-                    alert('user loge in')
-                    navigate('/')
+                    const dbRef = ref(getDatabase());
+                    get(child(dbRef, `users/${user.uid}`)).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            localStorage.setItem('loggedin', 'user')
+                            localStorage.setItem('userdata', JSON.stringify(snapshot.val()))
+                            alert('user logged in')
+                            navigate('/user')
+                        } else {
+                            console.log("No data available");
+                        }
+                    }).catch((error) => {
+                        console.error(error);
+                    });
                 }
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorMessage)
                 alert('wrong email or pass')
 
             }).finally(() => {

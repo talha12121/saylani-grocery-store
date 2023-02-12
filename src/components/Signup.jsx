@@ -3,10 +3,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 import Loader from "./loader";
-import { auth } from './firebaseconfig'
+import { auth, database } from './firebaseconfig'
+import { getDatabase, ref, set } from "firebase/database";
+
 
 function Signup() {
     const navigate = useNavigate()
+    const db = getDatabase();
+
     const [data, setData] = useState({
         name: '',
         email: '',
@@ -20,8 +24,15 @@ function Signup() {
         createUserWithEmailAndPassword(auth, data.email, data.password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user)
-                navigate('/login')
+                set(ref(db, 'users/' + user.uid), {
+                    uid:user.uid,
+                    name: data.name,
+                    email:data.email,
+                    contact:data.contact
+                }).then(() => {
+                    alert('signup successfully')
+                    navigate('/login')
+                })
             })
             .catch((error) => {
                 const errorCode = error.code;
